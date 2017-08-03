@@ -1,0 +1,36 @@
+{
+	"author": "Florian Wendelborn <dodekeract@users.noreply.github.com>",
+	"babel": {
+		"presets": [
+			[
+				"env",
+				{
+					"targets": {
+						"node": 8
+					}
+				}
+			],
+			"stage-3"
+		]
+	},
+	"description": "Encrypted Synchronisation",
+	"devDependencies": {
+		"babel-cli": "^6.24.1",
+		"babel-preset-env": "^1.6.0",
+		"babel-preset-stage-3": "^6.24.1"
+	},
+	"license": "MIT",
+	"name": "crync",
+	"repository": "https://dodekeract@github.com/dodekeract/crync.git",
+	"scripts": {
+		"build": "yarn run build-clear && yarn run build-transpile",
+		"build-clear": "rm -rf build/ && mkdir build",
+		"build-transpile": "babel source -d build",
+		"start": "node build",
+		"watch": "nodemon --watch source --watch package.json -e js,json --exec \"yarn run build && yarn run start\""
+	},
+	"version": "0.0.0",
+	"dependencies": {
+		"fs-then-native": "^2.0.0"
+	}
+}
